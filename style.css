@@ -50,3 +50,18 @@ button{
     font-weight: 700;
     font-size: 20px;
 }
+
+.operators,
+#D,
+#\%{
+    background-color: orange;
+}
+
+#equal{
+    background-color: green;
+}
+
+#C{
+    color: red;
+    background-color: darkgray;
+}

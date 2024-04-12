@@ -1,5 +1,12 @@
 // Function when equal sign is pressed
 function doIt() {
+    // Checking for valid sentence
+    if (firstNum == undefined || secondNum == undefined) {
+        clearDisplay(undefined);
+        return;
+    }
+
+    
     let result; 
     switch(operator) {
         case "+":
@@ -8,7 +15,12 @@ function doIt() {
         case "-":
             result = parseInt(firstNum) - parseInt(secondNum);
             break;
-        case "/":
+        case "÷":
+            if (parseInt(secondNum) == 0) {
+                alert("Infinite!");
+                clearDisplay(undefined);
+                return;
+            }
             result = parseInt(firstNum) / parseInt(secondNum);
             break;
         case "*":
@@ -17,7 +29,6 @@ function doIt() {
         case undefined:
             break;
     }
-    if ()
     clearDisplay(result);
 }
 
@@ -32,7 +43,7 @@ function clearDisplay(toBeFirst) {
 // Function to update display, to be called after every input
 function displayCurrent() {
     const display = document.querySelector("#display");
-    if (firstNum == undefined && operator == undefined && secondNum == undefined) {
+    if (firstNum == undefined && secondNum == undefined) {
         display.textContent = "cleared";
     } 
     else if (firstNum && operator == undefined && secondNum == undefined) {
@@ -70,9 +81,6 @@ function updateNum(inputNum) {
 let firstNum, operator, secondNum;
 displayCurrent();
 
-// Operator for temp use (testing updateNum)
-operator = "+";
-
 // Adding event listeners to "= and C"
 const equal = document.querySelector("#equal");
 equal.addEventListener("click", doIt);
@@ -88,4 +96,25 @@ numbers.forEach((number) => {
         console.log(number.value);
         updateNum(number.value);
     });
-})
+});
+
+// Adding event listeners to .operators to update var, call doIt if var alr exists
+const ops = document.querySelectorAll(".operators");
+ops.forEach((op) => {
+    op.addEventListener("click", () => {
+        console.log(op.value);
+        if (operator == undefined) {
+            operator = op.value;
+            displayCurrent();
+        }
+        else if (operator && firstNum && secondNum == undefined) {
+            operator = op.value;
+            displayCurrent();
+        }
+        else {
+            doIt();
+            operator = op.value;
+            displayCurrent();
+        }
+    });
+});
