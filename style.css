@@ -38,7 +38,7 @@ button{
     border-radius: 25px;
 }
 
-#display{
+.display{
     align-self: center;
     padding: 10px 2vw;
     color: whitesmoke;
