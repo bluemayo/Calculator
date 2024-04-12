@@ -1,0 +1,52 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    min-height: 90vh;
+}
+
+main{
+    border: 5px double black;
+    border-radius: 25px;
+    padding: 2vh 1vw;
+    background-color: gray;
+    gap: 5px;
+}
+
+.vertical{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.horizontal{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button{
+    flex: 1;
+    min-height: 50px;
+    min-width: 50px;
+    border: 1px solid red;
+    margin: 5px;
+    border-radius: 25px;
+}
+
+#display{
+    align-self: center;
+    padding: 10px 2vw;
+    color: whitesmoke;
+    border: 2px solid red;
+    border-radius: 15px;
+    width: 90%;
+    text-align: right;
+    background-color: black;
+    font-weight: 700;
+    font-size: 20px;
+}
